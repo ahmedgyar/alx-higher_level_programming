@@ -11,8 +11,8 @@ class Square:
     """Class-Square"""
     def __init__(self, size=0, position=(0, 0)):
         """Constructor of a Square with the size and position"""
-        self.__size = size
-        self.__position = position
+        self.size = size
+        self.position = position
 
     @property
     def size(self):
