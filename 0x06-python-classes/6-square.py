@@ -44,12 +44,11 @@ class Square:
     def my_print(self):
         """Method to print a square pattern"""
         for _ in range(self.__position[1]):
-            print("")
+            print()
         for _ in range(self.__size):
             for _ in range(self.__position[0]):
                 print("_", end="")
             for _ in range(self.__size):
                 print("#", end="")
-            print("")
-
+            print()
 
