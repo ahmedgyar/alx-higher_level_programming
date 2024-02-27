@@ -33,14 +33,16 @@ class Square:
         """Getter for the size private attribute"""
         return self.__position
 
-    @position.setter
+     @position.setter
     def position(self, value):
-        """Setter for the size private attribute"""
-        if not isinstance(value, tuple) or len(value) != 2 or \
-                not all(isinstance(n, int) for n in value) or \
-                any(n < 0 for n in value):
+        """Setter of position"""
+        if (len(value) != 2) or (type(value) is not tuple) \
+                or (type(value[0]) is not int) \
+                or (type(value[1]) is not int) \
+                or (value[0] < 0) or (value[1] < 0):
             raise TypeError("position must be a tuple of 2 positive integers")
-        self.__position = value
+        else:
+            self.__position = value
 
     def area(self):
         """Method to get the area of the Square"""
