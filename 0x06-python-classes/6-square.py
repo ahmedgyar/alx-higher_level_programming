@@ -1,6 +1,11 @@
 #!/usr/bin/python3
+"""
+Create a Class Square with:
+- size, position private propreties
+- method of area and method of print_square
+- getters & setters.
+"""
 
-"""Create a Class Square with size, position, method of area and getters & setters"""
 
 class Square:
     """Class-Square"""
