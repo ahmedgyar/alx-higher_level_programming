@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 class Square:
     def __init__(self, size):
-        if not isinstance(size, int):
+        if(type(size) is not int):
             raise TypeError("Size must be an integer")
         if size < 0:
             raise ValueError("Size must be >= 0")
@@ -13,7 +13,7 @@ class Square:
 
     @size.setter
     def size(self, value):
-        if not isinstance(value, int):
+        if(type(value) is not int):
             raise TypeError("Size must be an integer")
         if value < 0:
             raise ValueError("Size must be >= 0")
