@@ -3,4 +3,5 @@
 
 class Rectangle:
     """Represent a rectangle."""
+    pass
     # Add methods here
