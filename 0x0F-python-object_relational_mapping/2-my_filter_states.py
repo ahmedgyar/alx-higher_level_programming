@@ -3,6 +3,7 @@
     script should take 4 arguments: mysql username,
     mysql password, database name and state name searched
 '''
+
 import sys
 import MySQLdb
 
@@ -17,6 +18,7 @@ def anything():
     search_name = sys.argv[4]
     host = 'localhost'
     port = 3306
+    
     con = MySQLdb.connect(user=username, passwd=password,
                         db=db_name, host=host, port=port)
     cur = con.cursor()
