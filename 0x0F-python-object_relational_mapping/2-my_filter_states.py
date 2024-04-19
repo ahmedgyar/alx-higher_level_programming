@@ -1,4 +1,8 @@
 #!/usr/bin/python3
+''' script for task 2
+    script should take 4 arguments: mysql username,
+    mysql password, database name and state name searched
+'''
 import sys
 import MySQLdb
 
