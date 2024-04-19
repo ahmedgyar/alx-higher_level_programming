@@ -4,32 +4,34 @@
     mysql password, database name and state name searched
 '''
 
-import sys
 import MySQLdb
+import sys
 
 
-def anything():
+def list_with_name():
     ''' displays all values in the states table in hbtn db where name
         matches the argument passed to the script
     '''
     username = sys.argv[1]
     password = sys.argv[2]
     db_name = sys.argv[3]
-    search_name = sys.argv[4]
+    state_name = sys.argv[4]
     host = 'localhost'
     port = 3306
-    
-    con = MySQLdb.connect(user=username, passwd=password,
-                        db=db_name, host=host, port=port)
-    cur = con.cursor()
-    cur.execute("SELECT * FROM states WHERE name LIKE %s ORDER BY id ASC;", (search_name,))
-    results = cur.fetchall()
-    cur.close()
-    con.close()
 
-    for result in results:
-        print(result)
+    db = MySQLdb.connect(host=host, user=username, passwd=password,
+                         db=db_name, port=port)
+    cur = db.cursor()
+    cur.execute(('SELECT * FROM states WHERE BINARY name = \'{}\'\
+                 ORDER BY id ASC;').format(state_name))
+    result = cur.fetchall()
+    cur.close()
+    db.close()
+
+    if result:
+        for row in result:
+            print(row)
 
 
 if __name__ == '__main__':
-    anything()
+    list_with_name()
