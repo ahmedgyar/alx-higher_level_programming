@@ -15,15 +15,17 @@ def anything():
     username = sys.argv[1]
     password = 'ahmedyasser'
     db_name = sys.argv[3]
-    search_name = sys.argv[4]
+    state_name = sys.argv[4]
     host = 'localhost'
     port = 3306
     
     con = MySQLdb.connect(user=username, passwd=password,
                         db=db_name, host=host, port=port)
     cur = con.cursor()
-    cur.execute("SELECT cities.id, cities.name, states.name FROM cities \
-JOIN states ON cities.state_id = states.id WHERE states.name = %s ORDER BY cities.id ASC;",(search_name,))
+    cur.execute('SELECT c.name FROM cities c INNER JOIN states s ' +
+                'ON s.id = c.state_id WHERE ' +
+                'BINARY s.name = %s ' +
+                'ORDER BY c.id ASC;', [state_name])
     results = cur.fetchall()
     cur.close()
     con.close()
