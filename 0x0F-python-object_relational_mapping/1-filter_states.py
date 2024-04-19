@@ -11,8 +11,8 @@ def anything():
     db_name = sys.argv[3]
     host = 'localhost'
     port = 3306
-
-    con = MySQLdb.connect(user=username, passwd=password, db=db_name, host=host, port=port)
+    con = MySQLdb.connect(user=username, passwd=password,
+                        db=db_name, host=host, port=port)
     cur = con.cursor()
     cur.execute("SELECT * FROM states WHERE name LIKE 'N%' ORDER BY id ASC;")
     results = cur.fetchall()
