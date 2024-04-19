@@ -4,8 +4,9 @@ import MySQLdb
 
 
 def anything():
-    '''List all states in the database starting with N.'''
-
+    ''' displays all values in the states table in hbtn db where name
+        matches the argument passed to the script
+    '''
     username = sys.argv[1]
     password = sys.argv[2]
     db_name = sys.argv[3]
