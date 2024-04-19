@@ -23,7 +23,7 @@ def anything():
                         db=db_name, host=host, port=port)
     cur = con.cursor()
     cur.execute("SELECT cities.id, cities.name, states.name FROM cities \
-JOIN states ON cities.state_id = states.id ORDER BY cities.id ASC;")
+JOIN states ON cities.state_id = states.id WHERE states.name = %s ORDER BY cities.id ASC;",(search_name,))
     results = cur.fetchall()
     cur.close()
     con.close()
