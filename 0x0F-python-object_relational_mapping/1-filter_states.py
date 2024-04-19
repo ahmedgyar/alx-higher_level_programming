@@ -7,7 +7,7 @@ def anything():
     '''List all states in the database starting with N.'''
 
     username = sys.argv[1]
-    password = 'ahmedyasser'
+    password = sys.argv[2]
     db_name = sys.argv[3]
     host = 'localhost'
     port = 3306
