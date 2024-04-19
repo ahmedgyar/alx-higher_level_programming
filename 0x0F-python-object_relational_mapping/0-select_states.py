@@ -2,8 +2,13 @@
 import sys
 import MySQLdb
 
+
 def anything():
-    '''list all states in db'''
+    '''List all states in the database.'''
+    if len(sys.argv) != 4:
+        print("Usage: python script.py <username> <password> <db_name>")
+        sys.exit(1)
+
     username = sys.argv[1]
     password = 'ahmedyasser'
     db_name = sys.argv[3]
@@ -13,17 +18,13 @@ def anything():
     con = MySQLdb.connect(user=username, passwd=password, db=db_name, host=host, port=port)
     cur = con.cursor()
 
-    # Executing the SQL query
     cur.execute("SELECT * FROM states ORDER BY id ASC;")
 
-    # Fetching results
     results = cur.fetchall()
 
-    # Closing cursor and connection
     cur.close()
     con.close()
 
-    # Printing results
     for result in results:
         print(result)
 
